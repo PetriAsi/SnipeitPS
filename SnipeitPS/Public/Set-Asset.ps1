@@ -44,11 +44,44 @@ function Set-Asset()
         [parameter(mandatory = $true)]
         [int]$id,
 
-        [string]$Name,
+        [parameter(mandatory = $false)]
+        [int]$status_id,
 
-        [string]$Status_id,
+        [parameter(mandatory = $false)]
+        [int]$model_id,
 
-        [string]$Model_id,
+        [parameter(mandatory = $false)]
+        [string]$name,
+
+        [parameter(mandatory = $false)]
+        [string]$asset_tag,
+
+        [parameter(mandatory = $false)]
+        [string]$serial,
+
+        [parameter(mandatory = $false)]
+        [int]$company_id,
+
+        [parameter(mandatory = $false)]
+        [string]$order_number,
+
+        [parameter(mandatory = $false)]
+        [string]$notes,
+
+        [parameter(mandatory = $false)]
+        [int]$warranty_months,
+
+        [parameter(mandatory = $false)]
+        [string]$purchase_cost,
+
+        [parameter(mandatory = $false)]
+        [string]$purchase_date,
+
+        [parameter(mandatory = $false)]
+        [int]$supplier_id,
+
+        [parameter(mandatory = $false)]
+        [int]$rtd_location_id,
 
         [parameter(mandatory = $true)]
         [string]$url,
@@ -59,13 +92,8 @@ function Set-Asset()
         [hashtable] $customfields
     )
 
-    $Values = @{}
+    $Values = . Get-ParameterValue $MyInvocation.MyCommand.Parameters
 
-    if ($Name) { $Values.Add('name',$Name)}
-
-    if ($status_id) { $Values.Add('status_id',$status_id)}
-
-    if ($model_id) { $Values.Add('model_id',$model_id)}
        
     if ($customfields)
     {
