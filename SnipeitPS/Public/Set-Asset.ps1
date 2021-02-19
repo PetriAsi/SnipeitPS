@@ -83,6 +83,9 @@ function Set-Asset()
         [parameter(mandatory = $false)]
         [int]$rtd_location_id,
 
+        [ValidateSet("Put","Patch")]
+        [string] $RequestType = "Put",
+
         [parameter(mandatory = $true)]
         [string]$url,
 
@@ -104,7 +107,7 @@ function Set-Asset()
 
     $Parameters = @{
         Uri    = "$url/api/v1/hardware/$id"
-        Method = 'Put'
+        Method = $RequestType
         Body   = $Body
         Token  = $apiKey
     }
