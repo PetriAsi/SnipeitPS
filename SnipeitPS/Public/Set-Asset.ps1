@@ -45,7 +45,7 @@ function Set-Asset()
         [int]$id,
 
         [parameter(mandatory = $false)]
-        [int]$Status_id,
+        [int]$status_id,
 
         [parameter(mandatory = $false)]
         [int]$model_id,
