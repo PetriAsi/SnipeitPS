@@ -12,7 +12,7 @@ function Get-ParameterValue {
         $Parameters
         ,
 
-        [string[]]$DefaultExcludeParameter = @("id", "url", "apiKey", 'Debug', 'Verbose')
+        [string[]]$DefaultExcludeParameter = @("id", "url", "apiKey", 'Debug', 'Verbose', 'RequestType')
     )
 
     if ($MyInvocation.Line[($MyInvocation.OffsetInLine - 1)] -ne '.') {
